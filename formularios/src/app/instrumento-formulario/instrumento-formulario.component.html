@@ -1,0 +1,53 @@
+<h2>Instrumento</h2>
+
+<div>
+    <form [formGroup]="form" #inst="ngForm" (ngSubmit)="alta()">
+     
+      
+
+         <label>Id Instrumento</label>
+         <br>
+         <input placeholder="Id Instrumento" required  formControlName="id" type="number">
+         <br><br>
+         <label>Nombre Instrumento</label>
+         <br>
+         <input placeholder="Nombre del instrumento" required formControlName="nombre">
+         <br>
+         <br>
+         <label>Precio Instrumento</label>
+         <br>
+         <input placeholder="Precio del instrumento" required formControlName="precio" type="number">
+         <br>
+         <br>
+         <label>Marca del instrumento</label>
+         <br>
+         <input placeholder="Marca del instrumentro" required formControlName="marca">
+         <br>
+         <br>
+         <button type="submit" [disabled]="inst.invalid">Aceptar</button>
+ 
+     </form>
+</div>
+
+<div>
+
+
+    @for (instrumento of instrumentos; track $index) {
+
+
+        <p>
+            {{instrumento.id}} | {{instrumento.nombre}} | {{instrumento.precio}}€ | {{instrumento.marca}}
+            <button (click)="modificar(instrumento)">Modificar</button>
+            <button (click)="borrar(instrumento)">Borrar</button>
+        </p>
+
+        
+
+
+    }
+
+
+
+
+
+</div>
